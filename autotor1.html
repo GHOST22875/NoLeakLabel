@@ -1,263 +1,499 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>АвтоТор - Mercedes-Benz GLE 350</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>АвтоТор - Mercedes-Benz GLE 350</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <div class="container">
-        <header class="header" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://avatars.mds.yandex.net/get-autoru-vos/2158634/d706d8b87694bb7bc4c89cae2163b979/1200x900'); background-size: cover; background-position: center;">
-            <div class="logo">
-                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg?semt=ais_hybrid&w=740" alt="Логотип АвтоТор">
-                <div class="logo-text">
-                    <span>АвтоТор</span> - автосалон в Калининграде
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                <div class="brand-text">
+                    <span class="fw-bold fs-4 gradient-text">АвтоТор</span>
+                    <span class="d-none d-md-block text-white-50 small">автосалон в Калининграде</span>
                 </div>
-            </div>
-            <p>Официальный дилер ведущих автомобильных марок</p>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="catalog.html"><i class="bi bi-grid me-1"></i>Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html"><i class="bi bi-telephone me-1"></i>Контакты</a>
+                    </li>
                 </ul>
-            </nav>
-        </header>
-        
-        <div class="product-detail">
-            <div class="product-header">
-                <div class="product-image-container">
-                    <img id="mainImage" class="main-image" src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" alt="Mercedes-Benz GLE">
-                </div>
-                
-                <div class="product-summary">
-                    <h1>Mercedes-Benz GLE 350 4MATIC</h1>
-                    <div class="price">6 150 000 ₽</div>
-                    <div class="product-buttons">
-                        <button class="btn-test-drive">Заказать тест-драйв</button>
-                        <button class="btn-buy">Купить</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Хлебные крошки -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item"><a href="catalog.html" class="text-decoration-none">Каталог</a></li>
+                <li class="breadcrumb-item"><a href="catalog.html?brand=mercedes" class="text-decoration-none">Mercedes-Benz</a></li>
+                <li class="breadcrumb-item active" aria-current="page">GLE 350 4MATIC</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Основная информация о товаре -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Галерея изображений -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img id="mainImage" src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" alt="Mercedes-Benz GLE" class="img-fluid rounded-4 shadow-lg w-100" style="height: 500px; object-fit: cover;">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-4 fs-6 px-4 py-3 rounded-pill">
+                            <i class="bi bi-lightning-charge-fill me-1"></i>EQ Boost
+                        </span>
                     </div>
-                    <div class="short-description">
-                        <p>Mercedes-Benz GLE 350 4MATIC — это роскошный среднеразмерный кроссовер премиум-класса, сочетающий в себе элегантный дизайн, передовые технологии и непревзойденный комфорт.</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" class="gallery-thumb active" onclick="changeImage(this.src)" alt="GLE вид спереди">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x')" alt="GLE вид сбоку">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13')" alt="GLE салон">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/2057673/1236866597/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-entity_search/2057673/1236866597/S600xU_2x')" alt="GLE вид сзади">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Информация о товаре -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="sticky-top" style="top: 100px;">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success me-2">В наличии</span>
+                            <span class="badge bg-info text-dark">EQ Boost</span>
+                        </div>
+                        
+                        <h1 class="display-5 fw-bold mb-3">Mercedes-Benz GLE 350 4MATIC</h1>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rating-stars me-3" style="color: #ffc107;">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="text-muted">5.0 · 18 отзывов</span>
+                        </div>
+
+                        <div class="car-price display-4 fw-bold mb-4" style="color: #00a19c;">6 150 000 ₽</div>
+                        
+                        <div class="mb-4">
+                            <p class="lead">Роскошный среднеразмерный кроссовер премиум-класса с гибридной установкой EQ Boost. Элегантный дизайн, передовые технологии и непревзойденный комфорт.</p>
+                        </div>
+
+                        <div class="bg-light p-4 rounded-4 mb-4">
+                            <h3 class="h6 fw-bold mb-3"><i class="bi bi-truck me-2" style="color: #00a19c;"></i>Доставка и оплата</h3>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Доставка</small>
+                                    <span class="fw-bold">1-2 дня</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Самовывоз</small>
+                                    <span class="fw-bold">Сегодня</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Оплата</small>
+                                    <span class="fw-bold">Наличные/Карта</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Рассрочка</small>
+                                    <span class="fw-bold">0-0-12</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mb-4">
+                            <button class="btn btn-success btn-lg rounded-pill px-5 flex-grow-1" style="background: linear-gradient(135deg, #00a19c, #00807a); border: none;" onclick="bookTestDrive()">
+                                <i class="bi bi-calendar-check me-2"></i>Тест-драйв
+                            </button>
+                            <button class="btn btn-outline-success btn-lg rounded-pill px-5 flex-grow-1" style="border-color: #00a19c; color: #00a19c;" onclick="buyNow()">
+                                <i class="bi bi-cart me-2"></i>Купить
+                            </button>
+                        </div>
+
+                        <!-- Выбор цвета -->
+                        <div class="mb-4">
+                            <h3 class="h6 fw-bold mb-3">Доступные цвета:</h3>
+                            <div class="d-flex gap-2">
+                                <div class="color-option active" style="background-color: #000000;" onclick="selectColor(this, 'Черный обсидиан')"></div>
+                                <div class="color-option" style="background-color: #C0C0C0;" onclick="selectColor(this, 'Серебристый')"></div>
+                                <div class="color-option" style="background-color: #4169E1;" onclick="selectColor(this, 'Синий металлик')"></div>
+                                <div class="color-option" style="background-color: #8B0000;" onclick="selectColor(this, 'Каштановый')"></div>
+                                <div class="color-option" style="background-color: #FFFFFF; border: 2px solid #ddd;" onclick="selectColor(this, 'Белый')"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">Выбран: <span id="selectedColor">Черный обсидиан</span></small>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Навигация по странице -->
+    <section class="bg-light sticky-top" style="top: 76px; z-index: 1020;">
+        <div class="container">
+            <ul class="nav nav-pills py-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#overview">Обзор</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#specifications">Характеристики</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#equipment">Комплектации</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#similar">Похожие</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Обзор автомобиля -->
+    <section id="overview" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title text-center mb-5" data-aos="fade-up">Обзор Mercedes-Benz GLE 350</h2>
+                    
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold" style="color: #00a19c;">258+14</div>
+                                <div class="text-muted">л.с. + EQ Boost</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold" style="color: #00a19c;">7.4</div>
+                                <div class="text-muted">сек до 100 км/ч</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold" style="color: #00a19c;">630</div>
+                                <div class="text-muted">л объем багажника</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content" data-aos="fade-up">
+                        <p class="lead">Mercedes-Benz GLE 350 4MATIC — это воплощение роскоши и инноваций в мире премиальных SUV. Гибридная система EQ Boost обеспечивает дополнительную мощность и экономичность.</p>
+                        
+                        <h3 class="h4 mb-3">Интеллектуальный гибрид EQ Boost</h3>
+                        <p>Система EQ Boost интегрирована в 2.0-литровый бензиновый двигатель и обеспечивает дополнительный крутящий момент в 14 л.с. Это позволяет не только улучшить динамику, но и существенно снизить расход топлива в городском цикле.</p>
+                        
+                        <h3 class="h4 mb-3">Комфорт и технологии</h3>
+                        <p>Салон Mercedes-Benz GLE впечатляет своей роскошью и технологичностью. Двойной 12.3-дюймовый дисплей MBUX, пневматическая подвеска AIR BODY CONTROL и система предиктивного управления создают непревзойденный уровень комфорта.</p>
+                        
+                        <div class="alert alert-info mt-4" role="alert" style="background-color: rgba(0,161,156,0.1); border-color: #00a19c; color: #00635f;">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            Специальное предложение: при покупке GLE 350 — расширенная гарантия 5 лет и 3 ТО в подарок!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Технические характеристики -->
+    <section id="specifications" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Технические характеристики</h2>
             
-            <div class="full-description">   
-                <h2>Описание товара</h2>
-                <div>
-                    <p>Mercedes-Benz GLE 350 4MATIC — это роскошный среднеразмерный кроссовер премиум-класса, сочетающий в себе элегантный дизайн, передовые технологии и непревзойденный комфорт. Автомобиль оснащен современным бензиновым двигателем с системой мягкого гибрида EQ Boost.</p>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="tech-specs">
+                        <h3 class="h5 mb-4"><i class="bi bi-engine me-2" style="color: #00a19c;"></i>Двигатель и трансмиссия</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Тип двигателя</span>
+                            <span class="spec-value">Бензиновый + EQ Boost</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем двигателя</span>
+                            <span class="spec-value">2.0 л (1991 см³)</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Мощность</span>
+                            <span class="spec-value">258 л.с. + 14 л.с. (EQ)</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Крутящий момент</span>
+                            <span class="spec-value">370 Н·м</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Цилиндры</span>
+                            <span class="spec-value">4, рядное расположение</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Коробка передач</span>
+                            <span class="spec-value">9-ступенчатая 9G-TRONIC</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Привод</span>
+                            <span class="spec-value">Полный (4MATIC)</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <h2>Технические характеристики</h2>
-                <table class="tech-table">
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Значение</th>
-                        <th>Единица измерения</th>
-                    </tr>
-                    <tr>
-                        <td>Мощность двигателя</td>
-                        <td>258</td>
-                        <td>л.с.</td>
-                    </tr>
-                    <tr>
-                        <td>Разгон 0-100 км/ч</td>
-                        <td>7.4</td>
-                        <td>секунд</td>
-                    </tr>
-                    <tr>
-                        <td>Расход топлива</td>
-                        <td>9.8</td>
-                        <td>л/100км</td>
-                    </tr>
-                    <tr>
-                        <td>Объем двигателя</td>
-                        <td>2.0</td>
-                        <td>литра</td>
-                    </tr>
-                    <tr>
-                        <td>Крутящий момент</td>
-                        <td>370</td>
-                        <td>Н·м</td>
-                    </tr>
-                    <tr>
-                        <td>Объем багажника</td>
-                        <td>630-2055</td>
-                        <td>литров</td>
-                    </tr>
-                </table>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="tech-specs">
+                        <h3 class="h5 mb-4"><i class="bi bi-speedometer2 me-2" style="color: #00a19c;"></i>Динамические характеристики</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Разгон 0-100 км/ч</span>
+                            <span class="spec-value">7.4 секунды</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Максимальная скорость</span>
+                            <span class="spec-value">210 км/ч</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Расход топлива (смешанный)</span>
+                            <span class="spec-value">9.8 л/100км</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем топливного бака</span>
+                            <span class="spec-value">85 л</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-specs mt-4">
+                        <h3 class="h5 mb-4"><i class="bi bi-box me-2" style="color: #00a19c;"></i>Габариты и вес</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Длина</span>
+                            <span class="spec-value">4924 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Ширина</span>
+                            <span class="spec-value">1947 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Высота</span>
+                            <span class="spec-value">1772 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Колесная база</span>
+                            <span class="spec-value">2995 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем багажника</span>
+                            <span class="spec-value">630-2055 л</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h2>Детальные характеристики</h2>
-                <table class="special-table">
-                    <tr>
-                        <th colspan="2">Основные параметры</th>
-                        <th colspan="3">Динамические характеристики</th>
-                    </tr>
-                    <tr>
-                        <th rowspan="5">Двигатель</th>
-                        <td>Тип</td>
-                        <td>Бензиновый с турбонаддувом + EQ Boost</td>
-                        <td>Мощность</td>
-                        <td>258 л.с. + 14 л.с. (EQ Boost)</td>
-                    </tr>
-                    <tr>
-                        <td>Объем</td>
-                        <td>2.0 л</td>
-                        <td>Крутящий момент</td>
-                        <td>370 Н·м</td>
-                    </tr>
-                    <tr>
-                        <td>Цилиндры</td>
-                        <td>4</td>
-                        <td>Разгон 0-100 км/ч</td>
-                        <td>7.4 сек</td>
-                    </tr>
-                    <tr>
-                        <td>Система впрыска</td>
-                        <td>Непосредственный</td>
-                        <td>Макс. скорость</td>
-                        <td>210 км/ч</td>
-                    </tr>
-                    <tr>
-                        <td>Наддув</td>
-                        <td>Турбокомпрессор</td>
-                        <td>EQ Boost</td>
-                        <td>14 л.с.</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3">Трансмиссия</th>
-                        <td>Привод</td>
-                        <td>Полный (4MATIC)</td>
-                        <td>Коробка передач</td>
-                        <td>9-ступенчатая 9G-TRONIC</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Система управления</td>
-                        <td colspan="2">Электронная DYNAMIC SELECT</td>
-                    </tr>
-                    <tr>
-                        <td>Дифференциал</td>
-                        <td>Электронный</td>
-                        <td>Режимы вождения</td>
-                        <td>5 режимов</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="2">Габариты</th>
-                        <td>Длина</td>
-                        <td>4924 мм</td>
-                        <td>Колесная база</td>
-                        <td>2995 мм</td>
-                    </tr>
-                    <tr>
-                        <td>Ширина</td>
-                        <td>1947 мм</td>
-                        <td>Высота</td>
-                        <td>1772 мм</td>
-                    </tr>
-                </table>
+    <!-- Комплектации -->
+    <section id="equipment" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Комплектации</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="equipment-item">
+                        <div class="equipment-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">Premium</h3>
+                        <div class="car-price h4 mb-3" style="color: #00a19c;">5 790 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>LED фары</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Кожа ARTICO</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Двухзонный климат</li>
+                            <li class="mb-2"><i class="bi bi-x-circle-fill text-danger me-2"></i>Панорамная крыша</li>
+                        </ul>
+                    </div>
+                </div>
                 
-                <h2>Характеристики товара</h2>
-                <div class="full-description">
-                    <ul>
-                        <li><strong>Двигатель:</strong> 2.0 л, 4 цилиндра, бензиновый с турбонаддувом + EQ Boost</li>
-                        <li><strong>Мощность:</strong> 258 л.с. при 5800-6100 об/мин</li>
-                        <li><strong>Крутящий момент:</strong> 370 Н·м при 1800-4000 об/мин</li>
-                        <li><strong>Система EQ Boost:</strong> Дополнительные 14 л.с.</li>
-                        <li><strong>Разгон 0-100 км/ч:</strong> 7.4 секунды</li>
-                        <li><strong>Максимальная скорость:</strong> 210 км/ч</li>
-                        <li><strong>Расход топлива:</strong> 9.8 л/100 км (смешанный цикл)</li>
-                        <li><strong>Привод:</strong> Полный (4MATIC)</li>
-                        <li><strong>Коробка передач:</strong> 9-ступенчатая автоматическая 9G-TRONIC</li>
-                        <li><strong>Год выпуска:</strong> 2023</li>
-                        <li><strong>Пробег:</strong> 0 км (новый)</li>
-                        <li><strong>Количество мест:</strong> 5</li>
-                        <li><strong>Объем багажника:</strong> 630-2055 литров</li>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="equipment-item border-2" style="border-color: #00a19c;">
+                        <span class="position-absolute top-0 start-50 translate-middle badge px-4 py-2" style="background-color: #00a19c;">
+                            Рекомендуем
+                        </span>
+                        <div class="equipment-icon" style="background: linear-gradient(135deg, #00a19c, #00635f);">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">Premium Plus</h3>
+                        <div class="car-price h4 mb-3" style="color: #00a19c;">6 150 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>MULTIBEAM LED</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Кожа Nappa</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Четырехзонный климат</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Панорамная крыша</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="equipment-item">
+                        <div class="equipment-icon" style="background: linear-gradient(135deg, #00a19c, #00635f);">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">AMG Line</h3>
+                        <div class="car-price h4 mb-3" style="color: #00a19c;">6 590 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Аэродинамический обвес</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>21" диски AMG</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Спортивные сиденья</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Burmester звук</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Похожие автомобили -->
+    <section id="similar" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Похожие автомобили</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-right">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="card-img-top" alt="BMW X5">
+                        <div class="card-body">
+                            <h3 class="card-title h5">BMW X5 xDrive40i</h3>
+                            <p class="card-text text-muted">5 890 000 ₽</p>
+                            <a href="autotor.html" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" class="card-img-top" alt="Audi Q7">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Audi Q7 55 TFSI</h3>
+                            <p class="card-text text-muted">5 980 000 ₽</p>
+                            <a href="autotor2.html" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-left">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/i?id=10b417aaad62557aa8d55e800849dc0a5426ef65-10700817-images-thumbs&n=13" class="card-img-top" alt="Volvo XC90">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Volvo XC90 Recharge</h3>
+                            <p class="card-text text-muted">6 450 000 ₽</p>
+                            <a href="#" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="fw-bold mb-0 gradient-text">АвтоТор</h5>
+                            <span class="text-white-50">автосалон в Калининграде</span>
+                        </div>
+                    </div>
+                    <p class="text-white-50 mb-4">Официальный дилер ведущих автомобильных марок. Продажа, сервис, кредитование, trade-in.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-white">Главная</a></li>
+                        <li class="mb-2"><a href="catalog.html" class="text-white-50 text-decoration-none hover-white">Каталог</a></li>
+                        <li class="mb-2"><a href="contacts.html" class="text-white-50 text-decoration-none hover-white">Контакты</a></li>
                     </ul>
                 </div>
-                
-                <h2>Подробное описание товара</h2>
-                <div class="full-description">
-                    <p>Mercedes-Benz GLE 350 4MATIC представляет собой идеальное сочетание роскоши, комфорта и современных технологий. В салоне вас встречает простор и элегантность — кожаная отделка премиум-класса ARTICO, панорамная стеклянная крыша, трехзонный климат-контроль THERMOTRONIC и современная информационно-развлекательная система MBUX с двойным дисплеем 12.3".</p>
-                    <p>Автомобиль оснащен пневматической подвеской AIR BODY CONTROL, которая автоматически подстраивается под дорожные условия и стиль вождения, обеспечивая непревзойденный комфорт и устойчивость.</p>
-                    <p>Система помощи водителю включает адаптивный круиз-контроль DISTRONIC, ассистент движения по полосе, автоматическое экстренное торможение, систему распознавания дорожных знаков и ассистент парковки с камерой 360°.</p>
-                    <p>Багажное отделение объемом 630 литров легко трансформируется благодаря складывающимся задним сиденьям в пропорции 40:20:40. Для удобства погрузки имеется электрическая дверь багажника с функцией бесконтактного открывания и функцией памяти.</p>
-                </div>
-                
-                <h2>Внешний вид и особенности</h2>
-                <div class="full-description">
-                    <p>Внешность Mercedes-Benz GLE 350 отличается элегантным и современным дизайном, характерным для моделей Mercedes-Benz. Большая решетка радиатора с хромированными элементами, многолучевые светодиодные фары и выразительные линии кузова создают впечатляющий образ премиум-кроссовера.</p>
-                    
-                    <div>
-                        <div>
-                            <div>Цвет кузова</div>
-                            <div>Черный обсидиан металлик</div>
-                        </div>
-                        <div>
-                            <div>Цвет салона</div>
-                            <div>Кожа ARTICO черная/коричневая</div>
-                        </div>
-                        <div>
-                            <div>Диски</div>
-                            <div>Легкосплавные, 20 дюймов, стиль AMG 5-спицевые</div>
-                        </div>
-                        <div>
-                            <div>Фары</div>
-                            <div>Полностью светодиодные MULTIBEAM LED</div>
-                        </div>
-                        <div>
-                            <div>Доп. оборудование</div>
-                            <div>Панорамная крыша, пакет AMG Line, подсветка салона</div>
-                        </div>
-                        <div>
-                            <div>Система мультимедиа</div>
-                            <div>MBUX с двойным экраном 12.3", навигация, Apple CarPlay/Android Auto</div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Контакты</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>г. Калининград, ул. Автомобильная, д. 15</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i>+7 (4012) 123-45-67</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div>
-            <h2>Другие автомобили в нашем салоне</h2>
-            <div class="product-grid">
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" alt="BMW X5">
-                    <div class="short-description">
-                        <h3>BMW X5 xDrive40i</h3>
-                        <p>Роскошный кроссовер с мощным двигателем</p>
-                        <div>5 890 000 ₽</div>
-                    </div>
-                </div>
-                
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" alt="Audi Q7">
-                    <div class="short-description">
-                        <h3>Audi Q7 55 TFSI</h3>
-                        <p>Просторный 7-местный SUV с полным приводом</p>
-                        <div>5 980 000 ₽</div>
-                    </div>
-                </div>
-                
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/i?id=10b417aaad62557aa8d55e800849dc0a5426ef65-10700817-images-thumbs&n=13" alt="Volvo XC90">
-                    <div class="short-description">
-                        <h3>Volvo XC90 Recharge</h3>
-                        <p>Гибридный SUV премиум-класса</p>
-                        <div>6 450 000 ₽</div>
-                    </div>
-                </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50">
+                <p class="mb-0">© 2023 АвтоТор. Все права защищены.</p>
             </div>
         </div>
-        
-        <hr>
+    </footer>
 
-        <footer class="footer">
-            <p class="footer-rights">© 2023 Автосборочное предприятие Калининграда "АвтоТор". Все права защищены.</p>
-            <p>Официальный дилер Mercedes-Benz, BMW, Audi, Volvo в Калининградской области</p>
-            <p>Телефон: +7 (4012) 123-45-67 | Email: info@avtotor-kld.ru</p>
-        </footer>
+    <!-- Модальное окно тест-драйва -->
+    <div class="modal fade" id="testDriveModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Запись на тест-драйв</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">Mercedes-Benz GLE 350 4MATIC</p>
+                    <form id="testDriveForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Телефон" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" class="form-control" min="2024-01-01" required>
+                        </div>
+                        <button type="submit" class="btn w-100 rounded-pill py-3 text-white" style="background: linear-gradient(135deg, #00a19c, #00807a); border: none;">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
