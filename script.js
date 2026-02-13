@@ -378,3 +378,101 @@ window.avtotor = {
     initContactForm,
     initCarAnimations
 };
+
+// Инициализация AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+
+        // Функция смены главного изображения
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Выбор цвета
+        function selectColor(element, colorName) {
+            document.querySelectorAll('.color-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            element.classList.add('active');
+            document.getElementById('selectedColor').textContent = colorName;
+        }
+
+        // Кредитный калькулятор
+        const downPaymentSlider = document.getElementById('downPayment');
+        downPaymentSlider.addEventListener('input', function() {
+            const percent = this.value;
+            document.getElementById('downPaymentPercent').textContent = percent;
+            
+            const carPrice = 5890000;
+            const downPaymentAmount = carPrice * (percent / 100);
+            const creditAmount = carPrice - downPaymentAmount;
+            const monthlyPayment = (creditAmount * 0.15) / 12; // упрощенный расчет
+            
+            document.getElementById('monthlyPayment').textContent = 
+                Math.round(monthlyPayment).toLocaleString('ru-RU') + ' ₽';
+        });
+
+        // Запись на тест-драйв
+        function bookTestDrive() {
+            const modal = new bootstrap.Modal(document.getElementById('testDriveModal'));
+            modal.show();
+        }
+
+        // Покупка
+        function buyNow() {
+            alert('Спасибо за интерес к BMW X5! Наш менеджер свяжется с вами в ближайшее время.');
+        }
+
+        // Скачать спецификацию
+        function downloadSpecs() {
+            alert('PDF файл со спецификацией будет отправлен на ваш email');
+        }
+
+        // Плавный скролл к якорям
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Подсветка активного пункта меню при скролле
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
