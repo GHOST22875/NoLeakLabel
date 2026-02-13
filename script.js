@@ -1,40 +1,5 @@
 // script.js - Основной JavaScript файл для АвтоТор
 
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    initAOS();
-    initNavbarScroll();
-    initQuickView();
-    initCatalogFilters();
-    initContactForm();
-    initCarAnimations();
-});
-
-// Инициализация AOS (Animate On Scroll)
-function initAOS() {
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-        easing: 'ease-in-out',
-        delay: 100
-    });
-}
-
-// Эффект скролла для навбара
-function initNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-}
-
 // Данные для быстрого просмотра
 const carData = {
     bmw: {
@@ -81,23 +46,71 @@ const carData = {
     }
 };
 
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    initAOS();
+    initNavbarScroll();
+    initQuickView();
+    initCatalogFilters();
+    initContactForm();
+    initCarAnimations();
+    initSmoothScroll();
+    initScrollSpy();
+    initProductPage();
+});
+
+// Инициализация AOS (Animate On Scroll)
+function initAOS() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true,
+            offset: 100,
+            easing: 'ease-in-out',
+            delay: 100
+        });
+    }
+}
+
+// Эффект скролла для навбара
+function initNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+}
+
 // Быстрый просмотр автомобилей
 function initQuickView() {
     const quickViewButtons = document.querySelectorAll('.quick-view');
     if (!quickViewButtons.length) return;
     
     quickViewButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
             const car = this.dataset.car;
             const data = carData[car];
             
             if (!data) return;
             
-            document.getElementById('quickViewImage').src = data.image;
-            document.getElementById('quickViewTitle').textContent = data.title;
-            document.getElementById('quickViewDesc').textContent = data.desc;
-            document.getElementById('quickViewPrice').innerHTML = `<span class="car-price">${data.price}</span>`;
-            document.getElementById('quickViewLink').href = data.link;
+            const modalImage = document.getElementById('quickViewImage');
+            const modalTitle = document.getElementById('quickViewTitle');
+            const modalDesc = document.getElementById('quickViewDesc');
+            const modalPrice = document.getElementById('quickViewPrice');
+            const modalLink = document.getElementById('quickViewLink');
+            
+            if (modalImage) modalImage.src = data.image;
+            if (modalTitle) modalTitle.textContent = data.title;
+            if (modalDesc) modalDesc.textContent = data.desc;
+            if (modalPrice) modalPrice.innerHTML = `<span class="car-price">${data.price}</span>`;
+            if (modalLink) modalLink.href = data.link;
         });
     });
 }
@@ -117,15 +130,13 @@ function initCatalogFilters() {
         items.forEach(item => {
             let showItem = true;
             
-            // Фильтр по бренду
             if (brandValue !== 'all' && item.dataset.brand !== brandValue) {
                 showItem = false;
             }
             
-            // Фильтр по цене
             if (priceValue !== 'all' && showItem) {
                 const price = parseInt(item.dataset.price);
-                let [min, max] = priceValue.split('-');
+                const [min, max] = priceValue.split('-');
                 
                 if (max === '9999999') {
                     if (price <= parseInt(min)) showItem = false;
@@ -134,7 +145,6 @@ function initCatalogFilters() {
                 }
             }
             
-            // Показываем/скрываем с анимацией
             if (showItem) {
                 item.style.display = 'block';
                 setTimeout(() => {
@@ -150,8 +160,9 @@ function initCatalogFilters() {
             }
         });
         
-        // Обновляем AOS
-        AOS.refresh();
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
     }
     
     brandFilter.addEventListener('change', filterItems);
@@ -166,7 +177,6 @@ function initContactForm() {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Валидация
         const name = document.getElementById('name');
         const email = document.getElementById('email');
         const phone = document.getElementById('phone');
@@ -175,88 +185,76 @@ function initContactForm() {
         
         let isValid = true;
         
-        // Проверка имени
-        if (!name.value.trim()) {
+        clearAllErrors();
+        
+        if (!name || !name.value.trim()) {
             showError(name, 'Введите имя');
             isValid = false;
-        } else {
-            clearError(name);
         }
         
-        // Проверка email
-        if (!email.value.trim()) {
+        if (!email || !email.value.trim()) {
             showError(email, 'Введите email');
             isValid = false;
         } else if (!isValidEmail(email.value)) {
             showError(email, 'Введите корректный email');
             isValid = false;
-        } else {
-            clearError(email);
         }
         
-        // Проверка телефона
-        if (!phone.value.trim()) {
+        if (!phone || !phone.value.trim()) {
             showError(phone, 'Введите телефон');
             isValid = false;
         } else if (!isValidPhone(phone.value)) {
             showError(phone, 'Введите корректный телефон');
             isValid = false;
-        } else {
-            clearError(phone);
         }
         
-        // Проверка сообщения
-        if (!message.value.trim()) {
+        if (!message || !message.value.trim()) {
             showError(message, 'Введите сообщение');
             isValid = false;
-        } else {
-            clearError(message);
         }
         
         if (isValid) {
-            // Анимация отправки
             const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
             submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Отправка...';
             submitBtn.disabled = true;
             
-            // Имитация отправки
             setTimeout(() => {
-                successAlert.classList.remove('d-none');
+                if (successAlert) {
+                    successAlert.classList.remove('d-none');
+                }
                 contactForm.reset();
-                submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Отправить';
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 
-                // Скрываем алерт через 5 секунд
                 setTimeout(() => {
-                    successAlert.classList.add('d-none');
+                    if (successAlert) {
+                        successAlert.classList.add('d-none');
+                    }
                 }, 5000);
-                
-                // Плавный скролл к алерту
-                successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 1500);
         }
     });
 }
 
-// Валидация email
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+function clearAllErrors() {
+    document.querySelectorAll('.is-invalid').forEach(el => {
+        el.classList.remove('is-invalid');
+    });
+    document.querySelectorAll('.invalid-feedback').forEach(el => {
+        el.remove();
+    });
 }
 
-// Валидация телефона
-function isValidPhone(phone) {
-    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-    return re.test(phone);
-}
-
-// Показать ошибку
 function showError(input, message) {
-    const formGroup = input.closest('.mb-3');
-    let errorDiv = formGroup.querySelector('.invalid-feedback');
-    
+    if (!input) return;
     input.classList.add('is-invalid');
     
+    const formGroup = input.closest('.mb-3');
+    if (!formGroup) return;
+    
+    let errorDiv = formGroup.querySelector('.invalid-feedback');
     if (!errorDiv) {
         errorDiv = document.createElement('div');
         errorDiv.className = 'invalid-feedback';
@@ -266,21 +264,20 @@ function showError(input, message) {
     errorDiv.textContent = message;
 }
 
-// Очистить ошибку
-function clearError(input) {
-    input.classList.remove('is-invalid');
-    const formGroup = input.closest('.mb-3');
-    const errorDiv = formGroup.querySelector('.invalid-feedback');
-    if (errorDiv) {
-        errorDiv.remove();
-    }
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function isValidPhone(phone) {
+    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+    return re.test(phone);
 }
 
 // Анимации для автомобилей с GSAP
 function initCarAnimations() {
     if (typeof gsap === 'undefined') return;
     
-    // Анимация карточек при появлении
     gsap.utils.toArray('.car-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
@@ -296,19 +293,6 @@ function initCarAnimations() {
         });
     });
     
-    // Параллакс эффект для Hero секции
-    gsap.to('.hero-section', {
-        scrollTrigger: {
-            trigger: '.hero-section',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1
-        },
-        backgroundPosition: '50% 30%',
-        ease: 'none'
-    });
-    
-    // Анимация преимуществ
     gsap.utils.toArray('.advantage-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
@@ -325,12 +309,124 @@ function initCarAnimations() {
     });
 }
 
+// Плавный скролл к якорям
+function initSmoothScroll() {
+    document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Подсветка активного пункта меню
+function initScrollSpy() {
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                current = '#' + section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Функции для страниц товаров
+function initProductPage() {
+    if (document.getElementById('mainImage')) {
+        window.changeImage = function(src) {
+            const mainImage = document.getElementById('mainImage');
+            if (mainImage) mainImage.src = src;
+            
+            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        };
+    }
+    
+    if (document.getElementById('selectedColor')) {
+        window.selectColor = function(element, colorName) {
+            document.querySelectorAll('.color-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            const selectedColor = document.getElementById('selectedColor');
+            if (selectedColor) selectedColor.textContent = colorName;
+        };
+    }
+    
+    if (document.getElementById('testDriveModal')) {
+        window.bookTestDrive = function() {
+            if (typeof bootstrap !== 'undefined') {
+                const modal = new bootstrap.Modal(document.getElementById('testDriveModal'));
+                modal.show();
+            }
+        };
+    }
+    
+    if (document.getElementById('downPayment')) {
+        const downPaymentSlider = document.getElementById('downPayment');
+        if (downPaymentSlider) {
+            downPaymentSlider.addEventListener('input', function() {
+                const percent = this.value;
+                const percentDisplay = document.getElementById('downPaymentPercent');
+                if (percentDisplay) percentDisplay.textContent = percent;
+                
+                const monthlyPayment = document.getElementById('monthlyPayment');
+                if (monthlyPayment) {
+                    const carPrice = 5890000;
+                    const downPaymentAmount = carPrice * (percent / 100);
+                    const creditAmount = carPrice - downPaymentAmount;
+                    const monthlyPaymentValue = (creditAmount * 0.15) / 12;
+                    
+                    monthlyPayment.textContent = Math.round(monthlyPaymentValue).toLocaleString('ru-RU') + ' ₽';
+                }
+            });
+        }
+    }
+    
+    window.buyNow = function() {
+        const carModel = document.querySelector('h1')?.textContent || 'автомобиль';
+        alert(`Спасибо за интерес к ${carModel}! Наш менеджер свяжется с вами в ближайшее время.`);
+    };
+    
+    window.downloadSpecs = function() {
+        alert('PDF файл со спецификацией будет отправлен на ваш email');
+    };
+}
+
 // Форматирование цены
 function formatPrice(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
 }
 
-// Добавление анимации при наведении на карточки
+// Анимация карточек при наведении
 document.addEventListener('mouseover', function(e) {
     const card = e.target.closest('.car-card');
     if (card) {
@@ -353,12 +449,14 @@ document.addEventListener('mouseout', function(e) {
 
 // Ленивая загрузка изображений
 if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
                 imageObserver.unobserve(img);
             }
         });
@@ -376,132 +474,13 @@ window.avtotor = {
     initQuickView,
     initCatalogFilters,
     initContactForm,
-    initCarAnimations
+    initCarAnimations,
+    initSmoothScroll,
+    initScrollSpy,
+    initProductPage,
+    changeImage: window.changeImage,
+    selectColor: window.selectColor,
+    bookTestDrive: window.bookTestDrive,
+    buyNow: window.buyNow,
+    downloadSpecs: window.downloadSpecs
 };
-
-// Инициализация AOS
-        AOS.init({
-            duration: 800,
-            once: false,
-            mirror: true
-        });
-
-        // Функция смены главного изображения
-        function changeImage(src) {
-            document.getElementById('mainImage').src = src;
-            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-                thumb.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
-
-        // Выбор цвета
-        function selectColor(element, colorName) {
-            document.querySelectorAll('.color-option').forEach(opt => {
-                opt.classList.remove('active');
-            });
-            element.classList.add('active');
-            document.getElementById('selectedColor').textContent = colorName;
-        }
-
-        // Кредитный калькулятор
-        const downPaymentSlider = document.getElementById('downPayment');
-        downPaymentSlider.addEventListener('input', function() {
-            const percent = this.value;
-            document.getElementById('downPaymentPercent').textContent = percent;
-            
-            const carPrice = 5890000;
-            const downPaymentAmount = carPrice * (percent / 100);
-            const creditAmount = carPrice - downPaymentAmount;
-            const monthlyPayment = (creditAmount * 0.15) / 12; // упрощенный расчет
-            
-            document.getElementById('monthlyPayment').textContent = 
-                Math.round(monthlyPayment).toLocaleString('ru-RU') + ' ₽';
-        });
-
-        // Запись на тест-драйв
-        function bookTestDrive() {
-            const modal = new bootstrap.Modal(document.getElementById('testDriveModal'));
-            modal.show();
-        }
-
-        // Покупка
-        function buyNow() {
-            alert('Спасибо за интерес к BMW X5! Наш менеджер свяжется с вами в ближайшее время.');
-        }
-
-        // Скачать спецификацию
-        function downloadSpecs() {
-            alert('PDF файл со спецификацией будет отправлен на ваш email');
-        }
-
-        // Плавный скролл к якорям
-        document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
-            });
-        });
-
-        // Подсветка активного пункта меню при скролле
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    current = '#' + section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
- AOS.init({ duration: 800, once: false });
-
-        function changeImage(src) {
-            document.getElementById('mainImage').src = src;
-            document.querySelectorAll('.gallery-thumb').forEach(thumb => thumb.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-
-        function selectColor(element, colorName) {
-            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
-            element.classList.add('active');
-            document.getElementById('selectedColor').textContent = colorName;
-        }
-
-        function bookTestDrive() {
-            new bootstrap.Modal(document.getElementById('testDriveModal')).show();
-        }
-
-        function buyNow() {
-            alert('Спасибо за интерес к Mercedes-Benz GLE! Наш менеджер свяжется с вами.');
-        }
-
-        document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
