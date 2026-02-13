@@ -1,222 +1,911 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>АвтоТор - Каталог автомобилей</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>АвтоТор - BMW X5 xDrive40i</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tech-specs {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .spec-item {
+            border-bottom: 1px solid rgba(139,0,255,0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .spec-item:hover {
+            background: rgba(139,0,255,0.02);
+            padding-left: 1rem;
+        }
+        .spec-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+        .spec-value {
+            font-weight: 700;
+            color: #212529;
+        }
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        .color-option.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary-color);
+        }
+        .gallery-thumb {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        .gallery-thumb:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(139,0,255,0.3);
+        }
+        .gallery-thumb.active {
+            opacity: 1;
+            border: 3px solid var(--primary-color);
+        }
+        .equipment-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139,0,255,0.1);
+            height: 100%;
+        }
+        .equipment-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(139,0,255,0.15);
+            border-color: var(--primary-color);
+        }
+        .equipment-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .review-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .review-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .rating-stars {
+            color: #ffc107;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://avatars.mds.yandex.net/get-autoru-vos/2158634/d706d8b87694bb7bc4c89cae2163b979/1200x900'); background-size: cover; background-position: center;">
-            <div class="logo">
-                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg?semt=ais_hybrid&w=740" alt="Логотип АвтоТор">
-                <div class="logo-text">
-                    <span>АвтоТор</span> - автосалон в Калининграде
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                <div class="brand-text">
+                    <span class="fw-bold fs-4 gradient-text">АвтоТор</span>
+                    <span class="d-none d-md-block text-white-50 small">автосалон в Калининграде</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="catalog.html"><i class="bi bi-grid me-1"></i>Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html"><i class="bi bi-telephone me-1"></i>Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Хлебные крошки -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item"><a href="catalog.html" class="text-decoration-none">Каталог</a></li>
+                <li class="breadcrumb-item"><a href="catalog.html?brand=bmw" class="text-decoration-none">BMW</a></li>
+                <li class="breadcrumb-item active" aria-current="page">X5 xDrive40i</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Основная информация о товаре -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Галерея изображений -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img id="mainImage" src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" alt="BMW X5" class="img-fluid rounded-4 shadow-lg w-100" style="height: 500px; object-fit: cover;">
+                        <span class="badge bg-primary position-absolute top-0 end-0 m-4 fs-6 px-4 py-3 rounded-pill">
+                            <i class="bi bi-star-fill me-1"></i>Новинка 2023
+                        </span>
+                    </div>
+                    <div class="row g-3 mt-3">
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="gallery-thumb active" onclick="changeImage(this.src)" alt="BMW X5 вид спереди">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900')" alt="BMW X5 вид сбоку">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13')" alt="BMW X5 салон">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-entity_search/2057673/1236866597/S600xU_2x')" alt="BMW X5 вид сзади">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Информация о товаре -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="sticky-top" style="top: 100px;">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success me-2">В наличии</span>
+                            <span class="badge bg-warning text-dark">Кредит от 4.9%</span>
+                        </div>
+                        
+                        <h1 class="display-5 fw-bold mb-3">BMW X5 xDrive40i</h1>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rating-stars me-3">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="text-muted">5.0 · 24 отзыва</span>
+                            <span class="mx-3 text-muted">|</span>
+                            <span class="text-muted"><i class="bi bi-eye me-1"></i> 1,234 просмотра</span>
+                        </div>
+
+                        <div class="car-price display-4 fw-bold mb-4 text-primary">5 890 000 ₽</div>
+                        
+                        <div class="mb-4">
+                            <p class="lead">Роскошный среднеразмерный кроссовер, сочетающий в себе мощь, комфорт и передовые технологии. Полный привод, спортивный характер и премиальный комфорт.</p>
+                        </div>
+
+                        <div class="bg-light p-4 rounded-4 mb-4">
+                            <h3 class="h6 fw-bold mb-3"><i class="bi bi-truck me-2 text-primary"></i>Доставка и оплата</h3>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Доставка</small>
+                                    <span class="fw-bold">1-3 дня</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Самовывоз</small>
+                                    <span class="fw-bold">Сегодня</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Оплата</small>
+                                    <span class="fw-bold">Наличные/Карта</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Рассрочка</small>
+                                    <span class="fw-bold">0-0-12</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mb-4">
+                            <button class="btn btn-primary btn-lg rounded-pill px-5 flex-grow-1" onclick="bookTestDrive()">
+                                <i class="bi bi-calendar-check me-2"></i>Тест-драйв
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg rounded-pill px-5 flex-grow-1" onclick="buyNow()">
+                                <i class="bi bi-cart me-2"></i>Купить
+                            </button>
+                        </div>
+
+                        <!-- Выбор цвета -->
+                        <div class="mb-4">
+                            <h3 class="h6 fw-bold mb-3">Доступные цвета:</h3>
+                            <div class="d-flex gap-2">
+                                <div class="color-option active" style="background-color: #000000;" onclick="selectColor(this, 'Сапфировый черный')"></div>
+                                <div class="color-option" style="background-color: #4169E1;" onclick="selectColor(this, 'Синий металлик')"></div>
+                                <div class="color-option" style="background-color: #C0C0C0;" onclick="selectColor(this, 'Серебристый')"></div>
+                                <div class="color-option" style="background-color: #FFFFFF; border: 2px solid #ddd;" onclick="selectColor(this, 'Белый перламутр')"></div>
+                                <div class="color-option" style="background-color: #8B0000;" onclick="selectColor(this, 'Красный')"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">Выбран: <span id="selectedColor">Сапфировый черный</span></small>
+                        </div>
+
+                        <!-- Кредитный калькулятор -->
+                        <div class="bg-white p-4 rounded-4 shadow-sm">
+                            <h3 class="h6 fw-bold mb-3"><i class="bi bi-calculator me-2 text-primary"></i>Кредитный калькулятор</h3>
+                            <div class="mb-3">
+                                <label class="form-label small">Первоначальный взнос</label>
+                                <input type="range" class="form-range" min="10" max="50" value="20" id="downPayment">
+                                <div class="d-flex justify-content-between">
+                                    <span class="small">10%</span>
+                                    <span class="small fw-bold"><span id="downPaymentPercent">20</span>%</span>
+                                    <span class="small">50%</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small">Срок кредита</label>
+                                <select class="form-select form-select-sm">
+                                    <option>12 месяцев</option>
+                                    <option selected>24 месяца</option>
+                                    <option>36 месяцев</option>
+                                    <option>48 месяцев</option>
+                                    <option>60 месяцев</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="small">Ежемесячный платеж:</span>
+                                <span class="fw-bold text-primary" id="monthlyPayment">210 357 ₽</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p>Официальный дилер ведущих автомобильных марок</p>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <div class="product-detail">
-            <div class="product-header">
-                <div class="product-image-container">
-                    <img id="mainImage" class="main-image" src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" alt="BMW X5">
+        </div>
+    </section>
+
+    <!-- Навигация по странице -->
+    <section class="bg-light sticky-top" style="top: 76px; z-index: 1020;">
+        <div class="container">
+            <ul class="nav nav-pills py-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#overview">Обзор</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#specifications">Характеристики</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#equipment">Комплектации</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#similar">Похожие</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Обзор автомобиля -->
+    <section id="overview" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title text-center mb-5" data-aos="fade-up">Обзор BMW X5 xDrive40i</h2>
+                    
+                    <div class="ratio ratio-16x9 mb-5" data-aos="zoom-in">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="BMW X5 обзор" allowfullscreen class="rounded-4"></iframe>
+                    </div>
+
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold text-primary">340</div>
+                                <div class="text-muted">лошадиных сил</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold text-primary">5.5</div>
+                                <div class="text-muted">сек до 100 км/ч</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold text-primary">243</div>
+                                <div class="text-muted">км/ч макс. скорость</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content" data-aos="fade-up">
+                        <p class="lead">BMW X5 xDrive40i — это воплощение спортивного характера и премиального комфорта в мире SUV. Пятое поколение легендарной модели подняло планку качества и технологий на новую высоту.</p>
+                        
+                        <h3 class="h4 mb-3">Дизайн и экстерьер</h3>
+                        <p>Внешность BMW X5 отличается выразительным дизайном, характерным для моделей BMW. Большая решетка радиатора в характерном стиле "ноздрей", адаптивные светодиодные фары и спортивные линии кузова создают впечатляющий образ. Светодиодная оптика с функцией Matrix Light обеспечивает превосходное освещение дороги в любых условиях.</p>
+                        
+                        <h3 class="h4 mb-3">Интерьер и комфорт</h3>
+                        <p>Салон BMW X5 встречает водителя и пассажиров атмосферой роскоши и высоких технологий. Кожаная отделка премиум-класса Vernasca, панорамная стеклянная крыша, четырехзонный климат-контроль и современная информационно-развлекательная система iDrive 7 с дисплеем 12.3" создают непревзойденный уровень комфорта.</p>
+                        
+                        <h3 class="h4 mb-3">Технологии и безопасность</h3>
+                        <p>Автомобиль оснащен адаптивной подвеской, которая автоматически подстраивается под дорожные условия и стиль вождения. Система помощи водителю включает адаптивный круиз-контроль с функцией Stop&Go, ассистент движения по полосе, автоматическое экстренное торможение и систему распознавания дорожных знаков.</p>
+                        
+                        <div class="alert alert-primary mt-4" role="alert">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            Специальное предложение: при покупке BMW X5 до конца месяца — подарочный сертификат на 100 000 ₽ на дополнительное оборудование!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Технические характеристики -->
+    <section id="specifications" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Технические характеристики</h2>
+            
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="tech-specs">
+                        <h3 class="h5 mb-4"><i class="bi bi-engine me-2 text-primary"></i>Двигатель и трансмиссия</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Тип двигателя</span>
+                            <span class="spec-value">Бензиновый с турбонаддувом</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем двигателя</span>
+                            <span class="spec-value">3.0 л (2998 см³)</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Мощность</span>
+                            <span class="spec-value">340 л.с. при 5500-6500 об/мин</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Крутящий момент</span>
+                            <span class="spec-value">450 Н·м при 1500-5200 об/мин</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Цилиндры</span>
+                            <span class="spec-value">6, рядное расположение</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Клапаны</span>
+                            <span class="spec-value">24</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Коробка передач</span>
+                            <span class="spec-value">8-ступенчатая АКПП Steptronic</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Привод</span>
+                            <span class="spec-value">Полный (xDrive)</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="product-summary">
-                    <h1>BMW X5 xDrive40i</h1>
-                    <div class="price">5 890 000 ₽</div>
-                    <div class="product-buttons">
-                        <button class="btn-test-drive">Заказать тест-драйв</button>
-                        <button class="btn-buy">Купить</button>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="tech-specs">
+                        <h3 class="h5 mb-4"><i class="bi bi-speedometer2 me-2 text-primary"></i>Динамические характеристики</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Разгон 0-100 км/ч</span>
+                            <span class="spec-value">5.5 секунд</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Максимальная скорость</span>
+                            <span class="spec-value">243 км/ч</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Расход топлива (город)</span>
+                            <span class="spec-value">10.2 л/100км</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Расход топлива (трасса)</span>
+                            <span class="spec-value">7.4 л/100км</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Расход топлива (смешанный)</span>
+                            <span class="spec-value">8.9 л/100км</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем топливного бака</span>
+                            <span class="spec-value">83 л</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Экологический класс</span>
+                            <span class="spec-value">Евро-6</span>
+                        </div>
                     </div>
-                    <div class="short-description">
-                        <p>BMW X5 xDrive40i — это роскошный среднеразмерный кроссовер, сочетающий в себе мощь, комфорт и передовые технологии.</p>
+                    
+                    <div class="tech-specs mt-4">
+                        <h3 class="h5 mb-4"><i class="bi bi-box me-2 text-primary"></i>Габариты и вес</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Длина</span>
+                            <span class="spec-value">4930 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Ширина</span>
+                            <span class="spec-value">2004 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Высота</span>
+                            <span class="spec-value">1776 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Колесная база</span>
+                            <span class="spec-value">2975 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Клиренс</span>
+                            <span class="spec-value">214 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем багажника</span>
+                            <span class="spec-value">650-1870 л</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Снаряженная масса</span>
+                            <span class="spec-value">2245 кг</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="full-description">   
-                <h2>Описание товара</h2>
-                <div>
-                    <p>BMW X5 xDrive40i — это роскошный среднеразмерный кроссовер, сочетающий в себе мощь, комфорт и передовые технологии. Автомобиль оснащен современным 6-цилиндровым двигателем с турбонаддувом и интеллектуальной системой полного привода xDrive.</p>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <button class="btn btn-outline-primary rounded-pill px-5" onclick="downloadSpecs()">
+                    <i class="bi bi-file-pdf me-2"></i>Скачать спецификацию PDF
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Комплектации и опции -->
+    <section id="equipment" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Комплектации и опции</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="equipment-item">
+                        <div class="equipment-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">Base</h3>
+                        <div class="car-price h4 mb-3">5 490 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Светодиодные фары</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Кожаный салон</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Двухзонный климат-контроль</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Парктроник</li>
+                            <li class="mb-2"><i class="bi bi-x-circle-fill text-danger me-2"></i>Панорамная крыша</li>
+                            <li class="mb-2"><i class="bi bi-x-circle-fill text-danger me-2"></i>Адаптивный круиз-контроль</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 mt-3 rounded-pill">Выбрать</button>
+                    </div>
                 </div>
                 
-                <h2>Технические характеристики</h2>
-                <table class="tech-table">
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Значение</th>
-                        <th>Единица измерения</th>
-                    </tr>
-                    <tr>
-                        <td>Мощность двигателя</td>
-                        <td>340</td>
-                        <td>л.с.</td>
-                    </tr>
-                    <tr>
-                        <td>Разгон 0-100 км/ч</td>
-                        <td>5.5</td>
-                        <td>секунд</td>
-                    </tr>
-                    <tr>
-                        <td>Расход топлива</td>
-                        <td>8.9</td>
-                        <td>л/100км</td>
-                    </tr>
-                    <tr>
-                        <td>Объем двигателя</td>
-                        <td>3.0</td>
-                        <td>литра</td>
-                    </tr>
-                </table>
-
-                <h2>Детальные характеристики</h2>
-                <table class="special-table">
-                    <tr>
-                        <th colspan="2">Основные параметры</th>
-                        <th colspan="3">Динамические характеристики</th>
-                    </tr>
-                    <tr>
-                        <th rowspan="4">Двигатель</th>
-                        <td>Тип</td>
-                        <td>Бензиновый с турбонаддувом</td>
-                        <td>Мощность</td>
-                        <td>340 л.с.</td>
-                    </tr>
-                    <tr>
-                        <td>Объем</td>
-                        <td>3.0 л</td>
-                        <td>Крутящий момент</td>
-                        <td>450 Н·м</td>
-                    </tr>
-                    <tr>
-                        <td>Цилиндры</td>
-                        <td>6</td>
-                        <td>Разгон 0-100 км/ч</td>
-                        <td>5.5 сек</td>
-                    </tr>
-                    <tr>
-                        <td>Клапанов</td>
-                        <td>24</td>
-                        <td>Макс. скорость</td>
-                        <td>243 км/ч</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3">Трансмиссия</th>
-                        <td>Привод</td>
-                        <td>Полный (xDrive)</td>
-                        <td>Коробка передач</td>
-                        <td>8-ступенчатая АКПП</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Система управления</td>
-                        <td colspan="2">Электронная</td>
-                    </tr>
-                    <tr>
-                        <td>Тип сцепления</td>
-                        <td>Автоматическое</td>
-                        <td>Передаточное число</td>
-                        <td>3.15</td>
-                    </tr>
-                </table>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="equipment-item position-relative border-primary border-2">
+                        <span class="position-absolute top-0 start-50 translate-middle badge bg-primary rounded-pill px-4 py-2">
+                            Рекомендуем
+                        </span>
+                        <div class="equipment-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">xLine</h3>
+                        <div class="car-price h4 mb-3">5 890 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Светодиодные фары Matrix</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Кожаный салон Vernasca</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Четырехзонный климат-контроль</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Панорамная крыша</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Адаптивный круиз-контроль</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Аудиосистема Harman Kardon</li>
+                        </ul>
+                        <button class="btn btn-primary w-100 mt-3 rounded-pill">Выбрать</button>
+                    </div>
+                </div>
                 
-                <h2>Характеристики товара</h2>
-                <div class="full-description">
-                    <ul>
-                        <li><strong>Двигатель:</strong> 3.0 л, 6 цилиндров, бензиновый с турбонаддувом</li>
-                        <li><strong>Мощность:</strong> 340 л.с. при 5500-6500 об/мин</li>
-                        <li><strong>Крутящий момент:</strong> 450 Н·м при 1500-5200 об/мин</li>
-                        <li><strong>Разгон 0-100 км/ч:</strong> 5.5 секунд</li>
-                        <li><strong>Максимальная скорость:</strong> 243 км/ч</li>
-                        <li><strong>Расход топлива:</strong> 8.9 л/100 км (смешанный цикл)</li>
-                        <li><strong>Привод:</strong> Полный (xDrive)</li>
-                        <li><strong>Коробка передач:</strong> 8-ступенчатая автоматическая</li>
-                        <li><strong>Год выпуска:</strong> 2023</li>
-                        <li><strong>Пробег:</strong> 0 км (новый)</li>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="equipment-item">
+                        <div class="equipment-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">M Sport</h3>
+                        <div class="car-price h4 mb-3">6 290 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Адаптивная подвеска</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Спортивные сиденья</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>21" диски</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Аэродинамический обвес M</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Спортивная выхлопная система</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Карбоновые вставки</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 mt-3 rounded-pill">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up">
+                <h3 class="h5 mb-4">Дополнительные опции</h3>
+                <div class="row g-3">
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 border rounded-3">
+                            <i class="bi bi-sun fs-2 text-primary mb-2"></i>
+                            <small class="d-block fw-bold">Панорамная крыша</small>
+                            <small class="text-muted">+150 000 ₽</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 border rounded-3">
+                            <i class="bi bi-speaker fs-2 text-primary mb-2"></i>
+                            <small class="d-block fw-bold">Harman Kardon</small>
+                            <small class="text-muted">+120 000 ₽</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 border rounded-3">
+                            <i class="bi bi-shield fs-2 text-primary mb-2"></i>
+                            <small class="d-block fw-bold">Защита картера</small>
+                            <small class="text-muted">+45 000 ₽</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 border rounded-3">
+                            <i class="bi bi-snow2 fs-2 text-primary mb-2"></i>
+                            <small class="d-block fw-bold">Подогрев руля</small>
+                            <small class="text-muted">+35 000 ₽</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Отзывы владельцев</h2>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-right" data-aos-delay="100">
+                    <div class="review-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">АМ</span>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold mb-0">Алексей Михайлов</h4>
+                                <small class="text-muted">Владелец 6 месяцев</small>
+                            </div>
+                        </div>
+                        <div class="rating-stars mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="mb-2">Отличный автомобиль! Динамика на высоте, салон очень комфортный. Расход радует - в смешанном цикле получается около 9.5 л. Адаптивный круиз-контроль просто сказка в пробках.</p>
+                        <small class="text-muted">2 дня назад</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="review-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">ЕК</span>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold mb-0">Екатерина Королева</h4>
+                                <small class="text-muted">Владелец 1 год</small>
+                            </div>
+                        </div>
+                        <div class="rating-stars mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="mb-2">Очень надежный автомобиль. За год ни одной поломки. Проходимость отличная, зимой на любом снегу чувствует себя уверенно. Отдельно хочу отметить систему полного привода.</p>
+                        <small class="text-muted">1 неделя назад</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-left" data-aos-delay="300">
+                    <div class="review-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">ДС</span>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold mb-0">Дмитрий Соколов</h4>
+                                <small class="text-muted">Владелец 3 месяца</small>
+                            </div>
+                        </div>
+                        <div class="rating-stars mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <p class="mb-2">Машина мечты! Очень понравилось обслуживание в АвтоТор. Взял в кредит по специальной ставке. Единственное - хотелось бы больше места на заднем ряду для троих пассажиров.</p>
+                        <small class="text-muted">3 недели назад</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4" data-aos="fade-up">
+                <button class="btn btn-outline-primary rounded-pill px-5">
+                    <i class="bi bi-pencil me-2"></i>Оставить отзыв
+                </button>
+                <button class="btn btn-link text-decoration-none">
+                    Все отзывы (24) <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Похожие автомобили -->
+    <section id="similar" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Похожие автомобили</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" class="card-img-top" alt="Mercedes-Benz GLE">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Mercedes-Benz GLE 350</h3>
+                            <p class="card-text text-muted">6 150 000 ₽</p>
+                            <a href="autotor1.html" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" class="card-img-top" alt="Audi Q7">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Audi Q7 55 TFSI</h3>
+                            <p class="card-text text-muted">5 980 000 ₽</p>
+                            <a href="autotor2.html" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-delay="300">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2057673/1236866597/S600xU_2x" class="card-img-top" alt="Porsche Cayenne">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Porsche Cayenne</h3>
+                            <p class="card-text text-muted">7 250 000 ₽</p>
+                            <a href="#" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="fw-bold mb-0 gradient-text">АвтоТор</h5>
+                            <span class="text-white-50">автосалон в Калининграде</span>
+                        </div>
+                    </div>
+                    <p class="text-white-50 mb-4">Официальный дилер ведущих автомобильных марок. Продажа, сервис, кредитование, trade-in.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-white">Главная</a></li>
+                        <li class="mb-2"><a href="catalog.html" class="text-white-50 text-decoration-none hover-white">Каталог</a></li>
+                        <li class="mb-2"><a href="contacts.html" class="text-white-50 text-decoration-none hover-white">Контакты</a></li>
                     </ul>
                 </div>
-                
-                <h2>Подробное описание товара</h2>
-                <div class="full-description">
-                    <p>BMW X5 xDrive40i представляет собой идеальное сочетание динамики, комфорта и функциональности. В салоне вас встречает простор и роскошь — кожаная отделка премиум-класса, панорамная стеклянная крыша, четырехзонный климат-контроль и современная информационно-развлекательная система iDrive 7 с дисплеем 12.3".</p>
-                    <p>Автомобиль оснащен адаптивной подвеской, которая автоматически подстраивается под дорожные условия и стиль вождения. Система помощи водителю включает адаптивный круиз-контроль, ассистент движения по полосе, автоматическое экстренное торможение и систему распознавания дорожных знаков.</p>
-                    <p>Багажное отделение объемом 650 литров легко трансформируется благодаря складывающимся задним сиденьям в пропорции 40:20:40. Для удобства погрузки имеется электрическая дверь багажника с функцией бесконтактного открывания.</p>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Контакты</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>г. Калининград, ул. Автомобильная, д. 15</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i>+7 (4012) 123-45-67</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@avtotor-kld.ru</li>
+                    </ul>
                 </div>
-                
-                <h2>Внешний вид и особенности</h2>
-                <div class="full-description">
-                    <p>Внешность BMW X5 xDrive40i отличается выразительным дизайном, характерным для моделей BMW. Большая решетка радиатора в характерном стиле "ноздрей", адаптивные светодиодные фары и спортивные линии кузова создают впечатляющий образ.</p>
-                    
-                    <div>
-                        <div>
-                            <div>Цвет кузова</div>
-                            <div>Сапфировый черный металлик</div>
-                        </div>
-                        <div>
-                            <div>Диски</div>
-                            <div>Легкосплавные, 21 дюйм, стиль Y-spoke</div>
-                        </div>
-                        <div>
-                            <div>Фары</div>
-                            <div>Полностью светодиодные с функцией Matrix</div>
-                        </div>
-                        <div>
-                            <div>Доп. оборудование</div>
-                            <div>Панорамная крыша, спортивный обвес</div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-3">Режим работы</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><span class="text-white">Пн-Пт:</span> 9:00 - 20:00</li>
+                        <li class="mb-2"><span class="text-white">Сб:</span> 10:00 - 18:00</li>
+                        <li class="mb-2"><span class="text-white">Вс:</span> 10:00 - 16:00</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div>
-            <h2>Другие автомобили в нашем салоне</h2>
-            <div class="product-grid">
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" alt="Mercedes-Benz GLE">
-                    <div class="short-description">
-                        <h3>Mercedes-Benz GLE 350</h3>
-                        <p>Роскошный кроссовер с гибридной установкой</p>
-                        <div>6 150 000 ₽</div>
-                    </div>
-                </div>
-                
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" alt="Audi Q7">
-                    <div class="short-description">
-                        <h3>Audi Q7 55 TFSI</h3>
-                        <p>Просторный 7-местный SUV с полным приводом</p>
-                        <div>5 980 000 ₽</div>
-                    </div>
-                </div>
-                
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/i?id=10b417aaad62557aa8d55e800849dc0a5426ef65-10700817-images-thumbs&n=13" alt="Volvo XC90">
-                    <div class="short-description">
-                        <h3>Volvo XC90 Recharge</h3>
-                        <p>Гибридный SUV премиум-класса</p>
-                        <div>6 450 000 ₽</div>
-                    </div>
-                </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50">
+                <p class="mb-0">© 2023 Автосборочное предприятие Калининграда "АвтоТор". Все права защищены.</p>
             </div>
         </div>
-        
-        <hr>
+    </footer>
 
-        <footer class="footer">
-            <p class="footer-rights">© 2023 Автосборочное предприятие Калининграда "АвтоТор". Все права защищены.</p>
-            <p>Официальный дилер BMW, Mercedes-Benz, Audi, Volvo в Калининградской области</p>
-            <p>Телефон: +7 (4012) 123-45-67 | Email: info@avtotor-kld.ru</p>
-        </footer>
+    <!-- Модальное окно тест-драйва -->
+    <div class="modal fade" id="testDriveModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Запись на тест-драйв</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">BMW X5 xDrive40i</p>
+                    <form id="testDriveForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Телефон" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" class="form-control" min="2024-01-01" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option>10:00 - 12:00</option>
+                                <option>12:00 - 14:00</option>
+                                <option>14:00 - 16:00</option>
+                                <option>16:00 - 18:00</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-3">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Инициализация AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+
+        // Функция смены главного изображения
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Выбор цвета
+        function selectColor(element, colorName) {
+            document.querySelectorAll('.color-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            element.classList.add('active');
+            document.getElementById('selectedColor').textContent = colorName;
+        }
+
+        // Кредитный калькулятор
+        const downPaymentSlider = document.getElementById('downPayment');
+        downPaymentSlider.addEventListener('input', function() {
+            const percent = this.value;
+            document.getElementById('downPaymentPercent').textContent = percent;
+            
+            const carPrice = 5890000;
+            const downPaymentAmount = carPrice * (percent / 100);
+            const creditAmount = carPrice - downPaymentAmount;
+            const monthlyPayment = (creditAmount * 0.15) / 12; // упрощенный расчет
+            
+            document.getElementById('monthlyPayment').textContent = 
+                Math.round(monthlyPayment).toLocaleString('ru-RU') + ' ₽';
+        });
+
+        // Запись на тест-драйв
+        function bookTestDrive() {
+            const modal = new bootstrap.Modal(document.getElementById('testDriveModal'));
+            modal.show();
+        }
+
+        // Покупка
+        function buyNow() {
+            alert('Спасибо за интерес к BMW X5! Наш менеджер свяжется с вами в ближайшее время.');
+        }
+
+        // Скачать спецификацию
+        function downloadSpecs() {
+            alert('PDF файл со спецификацией будет отправлен на ваш email');
+        }
+
+        // Плавный скролл к якорям
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Подсветка активного пункта меню при скролле
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
