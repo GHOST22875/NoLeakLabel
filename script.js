@@ -476,3 +476,32 @@ window.avtotor = {
                 }
             });
         });
+
+ AOS.init({ duration: 800, once: false });
+
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(thumb => thumb.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function selectColor(element, colorName) {
+            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+            element.classList.add('active');
+            document.getElementById('selectedColor').textContent = colorName;
+        }
+
+        function bookTestDrive() {
+            new bootstrap.Modal(document.getElementById('testDriveModal')).show();
+        }
+
+        function buyNow() {
+            alert('Спасибо за интерес к Mercedes-Benz GLE! Наш менеджер свяжется с вами.');
+        }
+
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
