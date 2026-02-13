@@ -3,66 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АвтоТор - Главная</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>АвтоТор - Премиум автосалон в Калининграде</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://avatars.mds.yandex.net/get-autoru-vos/2158634/d706d8b87694bb7bc4c89cae2163b979/1200x900'); background-size: cover; background-position: center;">
-            <div class="logo">
-                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg?semt=ais_hybrid&w=740" alt="Логотип АвтоТор">
-                <div class="logo-text">
-                    <span>АвтоТор</span> - автосалон в Калининграде
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                <div class="brand-text">
+                    <span class="fw-bold fs-4 gradient-text">АвтоТор</span>
+                    <span class="d-none d-md-block text-white-50 small">автосалон в Калининграде</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="bi bi-house-door me-1"></i>Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html"><i class="bi bi-grid me-1"></i>Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html"><i class="bi bi-telephone me-1"></i>Контакты</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-lg-3 mt-2 mt-lg-0">
+                    <a href="contacts.html" class="btn btn-outline-light btn-sm rounded-pill px-4">
+                        <i class="bi bi-chat-dots me-1"></i>Связаться
+                    </a>
                 </div>
             </div>
-            <p>Официальный дилер ведущих автомобильных марок</p>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <hr>
-        
-        <main>
-            <h1>АвтоТор - автосалон премиум автомобилей</h1>
-            
-            <section>
-                <h2>Добро пожаловать в наш автосалон!</h2>
-                <p>Мы рады приветствовать вас в нашем автосалоне "АвтоТор" - официальном дилере ведущих автомобильных марок в Калининграде.</p>
-                <p>В нашем салоне представлены новые автомобили премиум-класса от мировых производителей: BMW, Mercedes-Benz, Audi, Volvo и других.</p>
-                <p>Мы предлагаем:</p>
-                <ul>
-                    <li>Широкий выбор новых автомобилей</li>
-                    <li>Официальную гарантию производителя</li>
-                    <li>Сервисное обслуживание</li>
-                    <li>Трейд-ин вашего автомобиля</li>
-                    <li>Автокредитование</li>
-                    <li>Страхование КАСКО и ОСАГО</li>
-                </ul>
-            </section>
-            
-            <section>
-                <h2>Популярные модели</h2>
-                <p>В этом месяце особой популярностью пользуются:</p>
-                <ul>
-                    <li><strong>BMW X5 xDrive40i</strong> - стильный и мощный кроссовер</li>
-                    <li><strong>Mercedes-Benz GLE 350</strong> - роскошь и комфорт</li>
-                    <li><strong>Audi Q7 55 TFSI</strong> - просторный семейный SUV</li>
-                </ul>
-            </section>
-        </main>
-        
-        <hr>
+        </div>
+    </nav>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p class="footer-rights">&copy; 2023 Автосборочное предприятие Калининграда "АвтоТор". Все права защищены.</p>
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container text-center text-white">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4" data-aos="fade-up">
+                        АвтоТор <span class="gradient-text">Премиум</span>
+                    </h1>
+                    <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
+                        Официальный дилер ведущих автомобильных марок в Калининграде
+                    </p>
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <a href="catalog.html" class="btn btn-primary btn-lg rounded-pill px-5 py-3 me-3">
+                            <i class="bi bi-search me-2"></i>Смотреть каталог
+                        </a>
+                        <a href="contacts.html" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3">
+                            <i class="bi bi-calendar-check me-2"></i>Тест-драйв
+                        </a>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#advantages" class="text-white">
+                <i class="bi bi-chevron-double-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Почему выбирают нас</h2>
+            <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">
+                Мы предлагаем лучшие условия для покупки автомобиля премиум-класса
+            </p>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="advantage-card text-center p-4">
+                        <div class="advantage-icon mb-4">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3>Официальная гарантия</h3>
+                        <p class="text-muted">Все автомобили с официальной гарантией производителя до 5 лет</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="advantage-card text-center p-4">
+                        <div class="advantage-icon mb-4">
+                            <i class="bi bi-currency-exchange"></i>
+                        </div>
+                        <h3>Trade-In</h3>
+                        <p class="text-muted">Выгодный обмен вашего автомобиля с оценкой за 30 минут</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="advantage-card text-center p-4">
+                        <div class="advantage-icon mb-4">
+                            <i class="bi bi-piggy-bank"></i>
+                        </div>
+                        <h3>Кредит от 4.9%</h3>
+                        <p class="text-muted">Специальные предложения от банков-партнеров</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные модели -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Популярные модели</h2>
+            <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">
+                Автомобили, которые выбирают наши клиенты
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="card-img-top" alt="BMW X5">
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-3">Новинка</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title h4">BMW X5 xDrive40i</h3>
+                            <p class="card-text text-muted">Роскошный кроссовер с мощным двигателем</p>
+                            <div class="car-price mb-3">5 890 000 ₽</div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="autotor.html" class="btn btn-outline-primary rounded-pill">
+                                    <i class="bi bi-info-circle me-1"></i>Подробнее
+                                </a>
+                                <button class="btn btn-primary rounded-pill quick-view" data-bs-toggle="modal" data-bs-target="#quickViewModal" data-car="bmw">
+                                    <i class="bi bi-eye me-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" class="card-img-top" alt="Mercedes-Benz GLE">
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title h4">Mercedes-Benz GLE 350</h3>
+                            <p class="card-text text-muted">Роскошный кроссовер с гибридной установкой</p>
+                            <div class="car-price mb-3">6 150 000 ₽</div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="autotor1.html" class="btn btn-outline-primary rounded-pill">
+                                    <i class="bi bi-info-circle me-1"></i>Подробнее
+                                </a>
+                                <button class="btn btn-primary rounded-pill quick-view" data-bs-toggle="modal" data-bs-target="#quickViewModal" data-car="mercedes">
+                                    <i class="bi bi-eye me-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-delay="400">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" class="card-img-top" alt="Audi Q7">
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title h4">Audi Q7 55 TFSI</h3>
+                            <p class="card-text text-muted">Просторный 7-местный SUV с полным приводом</p>
+                            <div class="car-price mb-3">5 980 000 ₽</div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="autotor2.html" class="btn btn-outline-primary rounded-pill">
+                                    <i class="bi bi-info-circle me-1"></i>Подробнее
+                                </a>
+                                <button class="btn btn-primary rounded-pill quick-view" data-bs-toggle="modal" data-bs-target="#quickViewModal" data-car="audi">
+                                    <i class="bi bi-eye me-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="catalog.html" class="btn btn-outline-primary btn-lg rounded-pill px-5">
+                    Все автомобили <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container text-white text-center py-5">
+            <h2 class="display-5 fw-bold mb-4" data-aos="fade-up">Готовы к тест-драйву?</h2>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
+                Запишитесь прямо сейчас и получите подарок при покупке
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="contacts.html" class="btn btn-light btn-lg rounded-pill px-5 py-3">
+                    <i class="bi bi-calendar-check me-2"></i>Записаться
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="fw-bold mb-0 gradient-text">АвтоТор</h5>
+                            <span class="text-white-50">автосалон в Калининграде</span>
+                        </div>
+                    </div>
+                    <p class="text-white-50 mb-4">Официальный дилер ведущих автомобильных марок. Продажа, сервис, кредитование, trade-in.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="bi bi-telegram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-whatsapp fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-white">Главная</a></li>
+                        <li class="mb-2"><a href="catalog.html" class="text-white-50 text-decoration-none hover-white">Каталог</a></li>
+                        <li class="mb-2"><a href="contacts.html" class="text-white-50 text-decoration-none hover-white">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Контакты</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>г. Калининград, ул. Автомобильная, д. 15</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i>+7 (4012) 123-45-67</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@avtotor-kld.ru</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="fw-bold mb-3">Режим работы</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><span class="text-white">Пн-Пт:</span> 9:00 - 20:00</li>
+                        <li class="mb-2"><span class="text-white">Сб:</span> 10:00 - 18:00</li>
+                        <li class="mb-2"><span class="text-white">Вс:</span> 10:00 - 16:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50">
+                <p class="mb-0">© 2023 Автосборочное предприятие Калининграда "АвтоТор". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно быстрого просмотра -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Быстрый просмотр</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="quickViewImage" src="" alt="Car" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 id="quickViewTitle" class="h4 mb-2"></h3>
+                            <p id="quickViewDesc" class="text-muted"></p>
+                            <div id="quickViewPrice" class="car-price mb-3"></div>
+                            <div class="d-flex gap-2">
+                                <a href="#" id="quickViewLink" class="btn btn-primary rounded-pill flex-grow-1">
+                                    <i class="bi bi-info-circle me-1"></i>Подробнее
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
