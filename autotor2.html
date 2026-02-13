@@ -1,269 +1,562 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>АвтоТор - Audi Q7 55 TFSI</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>АвтоТор - Audi Q7 55 TFSI</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://avatars.mds.yandex.net/get-autoru-vos/2158634/d706d8b87694bb7bc4c89cae2163b979/1200x900'); background-size: cover; background-position: center;">
-            <div class="logo">
-                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg?semt=ais_hybrid&w=740" alt="Логотип АвтоТор">
-                <div class="logo-text">
-                    <span>АвтоТор</span> - автосалон в Калининграде
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                <div class="brand-text">
+                    <span class="fw-bold fs-4 gradient-text">АвтоТор</span>
+                    <span class="d-none d-md-block text-white-50 small">автосалон в Калининграде</span>
                 </div>
-            </div>
-            <p>Официальный дилер ведущих автомобильных марок</p>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="catalog.html"><i class="bi bi-grid me-1"></i>Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html"><i class="bi bi-telephone me-1"></i>Контакты</a>
+                    </li>
                 </ul>
-            </nav>
-        </header>
-        
-        <div class="product-detail">
-            <div class="product-header">
-                <div class="product-image-container">
-                    <img id="mainImage" class="main-image" src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" alt="Audi Q7 55 TFSI">
-                </div>
-                
-                <div class="product-summary">
-                    <h1>Audi Q7 55 TFSI quattro</h1>
-                    <div class="price">5 980 000 ₽</div>
-                    <div class="product-buttons">
-                        <button class="btn-test-drive">Заказать тест-драйв</button>
-                        <button class="btn-buy">Купить</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Хлебные крошки -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item"><a href="catalog.html" class="text-decoration-none">Каталог</a></li>
+                <li class="breadcrumb-item"><a href="catalog.html?brand=audi" class="text-decoration-none">Audi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Q7 55 TFSI quattro</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Основная информация о товаре -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Галерея изображений -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img id="mainImage" src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" alt="Audi Q7" class="img-fluid rounded-4 shadow-lg w-100" style="height: 500px; object-fit: cover;">
+                        <span class="badge badge-7seats position-absolute top-0 end-0 m-4 fs-6 px-4 py-3 rounded-pill">
+                            <i class="bi bi-people-fill me-1"></i>7 мест
+                        </span>
                     </div>
-                    <div class="short-description">
-                        <p>Audi Q7 55 TFSI quattro — это просторный 7-местный SUV премиум-класса, сочетающий в себе элегантный дизайн, передовые технологии и выдающуюся практичность.</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/i?id=19e4d8b023ab7ff67332da155eef489bc8f08519-13104207-images-thumbs&n=13" class="gallery-thumb active" onclick="changeImage(this.src)" alt="Audi Q7 вид спереди">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x')" alt="Audi Q7 вид сбоку">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900')" alt="Audi Q7 салон">
+                        </div>
+                        <div class="col-3">
+                            <img src="https://avatars.mds.yandex.net/get-entity_search/2057673/1236866597/S600xU_2x" class="gallery-thumb" onclick="changeImage('https://avatars.mds.yandex.net/get-entity_search/2057673/1236866597/S600xU_2x')" alt="Audi Q7 вид сзади">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Информация о товаре -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="sticky-top" style="top: 100px;">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success me-2">В наличии</span>
+                            <span class="badge badge-7seats">7 мест</span>
+                        </div>
+                        
+                        <h1 class="display-5 fw-bold mb-3">Audi Q7 55 TFSI quattro</h1>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rating-stars me-3" style="color: #ffc107;">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="text-muted">5.0 · 32 отзыва</span>
+                        </div>
+
+                        <div class="car-price display-4 fw-bold mb-4" style="color: #005b9e;">5 980 000 ₽</div>
+                        
+                        <div class="mb-4">
+                            <p class="lead">Просторный 7-местный SUV премиум-класса с мощным двигателем V6 и легендарным полным приводом quattro. Идеальный выбор для большой семьи.</p>
+                        </div>
+
+                        <div class="bg-light p-4 rounded-4 mb-4">
+                            <h3 class="h6 fw-bold mb-3"><i class="bi bi-truck me-2" style="color: #005b9e;"></i>Доставка и оплата</h3>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Доставка</small>
+                                    <span class="fw-bold">2-3 дня</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Самовывоз</small>
+                                    <span class="fw-bold">Сегодня</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Оплата</small>
+                                    <span class="fw-bold">Наличные/Карта</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">Рассрочка</small>
+                                    <span class="fw-bold">0-0-18</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mb-4">
+                            <button class="btn btn-lg rounded-pill px-5 flex-grow-1 text-white" style="background: linear-gradient(135deg, #005b9e, #003f6b); border: none;" onclick="bookTestDrive()">
+                                <i class="bi bi-calendar-check me-2"></i>Тест-драйв
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg rounded-pill px-5 flex-grow-1" style="border-color: #005b9e; color: #005b9e;" onclick="buyNow()">
+                                <i class="bi bi-cart me-2"></i>Купить
+                            </button>
+                        </div>
+
+                        <!-- Выбор цвета -->
+                        <div class="mb-4">
+                            <h3 class="h6 fw-bold mb-3">Доступные цвета:</h3>
+                            <div class="d-flex gap-2">
+                                <div class="color-option active" style="background-color: #808080;" onclick="selectColor(this, 'Манхэттен Грей')"></div>
+                                <div class="color-option" style="background-color: #000000;" onclick="selectColor(this, 'Черный')"></div>
+                                <div class="color-option" style="background-color: #4169E1;" onclick="selectColor(this, 'Синий')"></div>
+                                <div class="color-option" style="background-color: #8B4513;" onclick="selectColor(this, 'Самара беж')"></div>
+                                <div class="color-option" style="background-color: #FFFFFF; border: 2px solid #ddd;" onclick="selectColor(this, 'Белый')"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">Выбран: <span id="selectedColor">Манхэттен Грей</span></small>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Навигация по странице -->
+    <section class="bg-light sticky-top" style="top: 76px; z-index: 1020;">
+        <div class="container">
+            <ul class="nav nav-pills py-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#overview">Обзор</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#specifications">Характеристики</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#equipment">Комплектации</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#similar">Похожие</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Обзор автомобиля -->
+    <section id="overview" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title text-center mb-5" data-aos="fade-up">Обзор Audi Q7 55 TFSI</h2>
+                    
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold" style="color: #005b9e;">340</div>
+                                <div class="text-muted">лошадиных сил</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold" style="color: #005b9e;">5.9</div>
+                                <div class="text-muted">сек до 100 км/ч</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center">
+                                <div class="display-4 fw-bold" style="color: #005b9e;">865</div>
+                                <div class="text-muted">л объем багажника</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content" data-aos="fade-up">
+                        <p class="lead">Audi Q7 55 TFSI — это флагманский SUV немецкого бренда, сочетающий в себе мощь, технологичность и практичность 7-местного автомобиля. Идеальный выбор для активной семьи.</p>
+                        
+                        <h3 class="h4 mb-3">Привод quattro</h3>
+                        <p>Легендарная система полного привода quattro с межосевым дифференциалом обеспечивает превосходное сцепление с дорогой в любых условиях. Распределение крутящего момента 40:60 между передней и задней осями гарантирует спортивный характер управления.</p>
+                        
+                        <h3 class="h4 mb-3">Просторный салон</h3>
+                        <p>Третий ряд сидений легко трансформируется, создавая дополнительное пространство для багажа. Система Audi virtual cockpit с дисплеем 12.3" и два сенсорных экрана MMI создают уникальную атмосферу высоких технологий.</p>
+                        
+                        <div class="alert mt-4 text-white" style="background: linear-gradient(135deg, #005b9e, #003f6b); border: none;">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            Семейное предложение: при покупке Audi Q7 — детское кресло Audi и зимний пакет в подарок!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Технические характеристики -->
+    <section id="specifications" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Технические характеристики</h2>
             
-            <div class="full-description">   
-                <h2>Описание товара</h2>
-                <div>
-                    <p>Audi Q7 55 TFSI quattro — это просторный 7-местный SUV премиум-класса, сочетающий в себе элегантный дизайн, передовые технологии и выдающуюся практичность. Автомобиль оснащен мощным 3.0-литровым двигателем V6 с турбонаддувом и системой полного привода quattro.</p>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="tech-specs">
+                        <h3 class="h5 mb-4"><i class="bi bi-engine me-2" style="color: #005b9e;"></i>Двигатель и трансмиссия</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Тип двигателя</span>
+                            <span class="spec-value">Бензиновый V6 TFSI</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем двигателя</span>
+                            <span class="spec-value">3.0 л (2995 см³)</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Мощность</span>
+                            <span class="spec-value">340 л.с. при 5200-6400 об/мин</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Крутящий момент</span>
+                            <span class="spec-value">500 Н·м при 1370-4500 об/мин</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Цилиндры</span>
+                            <span class="spec-value">6, V-образное</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Коробка передач</span>
+                            <span class="spec-value">8-ступенчатая Tiptronic</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Привод</span>
+                            <span class="spec-value">Полный quattro</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <h2>Технические характеристики</h2>
-                <table class="tech-table">
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Значение</th>
-                        <th>Единица измерения</th>
-                    </tr>
-                    <tr>
-                        <td>Мощность двигателя</td>
-                        <td>340</td>
-                        <td>л.с.</td>
-                    </tr>
-                    <tr>
-                        <td>Разгон 0-100 км/ч</td>
-                        <td>5.9</td>
-                        <td>секунд</td>
-                    </tr>
-                    <tr>
-                        <td>Расход топлива</td>
-                        <td>9.2</td>
-                        <td>л/100км</td>
-                    </tr>
-                    <tr>
-                        <td>Объем двигателя</td>
-                        <td>3.0</td>
-                        <td>литра</td>
-                    </tr>
-                    <tr>
-                        <td>Крутящий момент</td>
-                        <td>500</td>
-                        <td>Н·м</td>
-                    </tr>
-                    <tr>
-                        <td>Объем багажника</td>
-                        <td>865-2050</td>
-                        <td>литров</td>
-                    </tr>
-                </table>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="tech-specs">
+                        <h3 class="h5 mb-4"><i class="bi bi-speedometer2 me-2" style="color: #005b9e;"></i>Динамические характеристики</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Разгон 0-100 км/ч</span>
+                            <span class="spec-value">5.9 секунды</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Максимальная скорость</span>
+                            <span class="spec-value">250 км/ч (ограничена)</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Расход топлива (смешанный)</span>
+                            <span class="spec-value">9.2 л/100км</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем топливного бака</span>
+                            <span class="spec-value">85 л</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-specs mt-4">
+                        <h3 class="h5 mb-4"><i class="bi bi-box me-2" style="color: #005b9e;"></i>Габариты и вес</h3>
+                        
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Длина</span>
+                            <span class="spec-value">5063 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Ширина</span>
+                            <span class="spec-value">1970 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Высота</span>
+                            <span class="spec-value">1741 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Колесная база</span>
+                            <span class="spec-value">2994 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Клиренс</span>
+                            <span class="spec-value">201 мм</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Объем багажника</span>
+                            <span class="spec-value">865-2050 л</span>
+                        </div>
+                        <div class="spec-item d-flex justify-content-between align-items-center">
+                            <span class="spec-label">Количество мест</span>
+                            <span class="spec-value">7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h2>Детальные характеристики</h2>
-                <table class="special-table">
-                    <tr>
-                        <th colspan="2">Основные параметры</th>
-                        <th colspan="3">Динамические характеристики</th>
-                    </tr>
-                    <tr>
-                        <th rowspan="5">Двигатель</th>
-                        <td>Тип</td>
-                        <td>Бензиновый V6 с турбонаддувом TFSI</td>
-                        <td>Мощность</td>
-                        <td>340 л.с.</td>
-                    </tr>
-                    <tr>
-                        <td>Объем</td>
-                        <td>3.0 л</td>
-                        <td>Крутящий момент</td>
-                        <td>500 Н·м</td>
-                    </tr>
-                    <tr>
-                        <td>Цилиндры</td>
-                        <td>6 (V-образное)</td>
-                        <td>Разгон 0-100 км/ч</td>
-                        <td>5.9 сек</td>
-                    </tr>
-                    <tr>
-                        <td>Система впрыска</td>
-                        <td>Непосредственный TFSI</td>
-                        <td>Макс. скорость</td>
-                        <td>250 км/ч</td>
-                    </tr>
-                    <tr>
-                        <td>Наддув</td>
-                        <td>Турбокомпрессор</td>
-                        <td>Система выхлопа</td>
-                        <td>Двойная</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3">Трансмиссия</th>
-                        <td>Привод</td>
-                        <td>Полный (quattro)</td>
-                        <td>Коробка передач</td>
-                        <td>8-ступенчатая Tiptronic</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Система управления</td>
-                        <td colspan="2">Электронная с механическим дифференциалом</td>
-                    </tr>
-                    <tr>
-                        <td>Блокировка</td>
-                        <td>Межосевой дифференциал</td>
-                        <td>Распределение крутящего момента</td>
-                        <td>40:60 (перед:зад)</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3">Габариты</th>
-                        <td>Длина</td>
-                        <td>5063 мм</td>
-                        <td>Колесная база</td>
-                        <td>2994 мм</td>
-                    </tr>
-                    <tr>
-                        <td>Ширина</td>
-                        <td>1970 мм</td>
-                        <td>Высота</td>
-                        <td>1741 мм</td>
-                    </tr>
-                    <tr>
-                        <td>Колея (перед/зад)</td>
-                        <td>1666/1680 мм</td>
-                        <td>Дорожный просвет</td>
-                        <td>201 мм</td>
-                    </tr>
-                </table>
+    <!-- Комплектации -->
+    <section id="equipment" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Комплектации</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="equipment-item">
+                        <div class="equipment-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">Advanced</h3>
+                        <div class="car-price h4 mb-3" style="color: #005b9e;">5 690 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>LED фары</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Кожаная отделка</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Трехзонный климат</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>7 мест</li>
+                        </ul>
+                    </div>
+                </div>
                 
-                <h2>Характеристики товара</h2>
-                <div class="full-description">
-                    <ul>
-                        <li><strong>Двигатель:</strong> 3.0 л V6, бензиновый с турбонаддувом TFSI</li>
-                        <li><strong>Мощность:</strong> 340 л.с. при 5200-6400 об/мин</li>
-                        <li><strong>Крутящий момент:</strong> 500 Н·м при 1370-4500 об/мин</li>
-                        <li><strong>Разгон 0-100 км/ч:</strong> 5.9 секунд</li>
-                        <li><strong>Максимальная скорость:</strong> 250 км/ч (электронно ограничена)</li>
-                        <li><strong>Расход топлива:</strong> 9.2 л/100 км (смешанный цикл)</li>
-                        <li><strong>Привод:</strong> Полный (quattro с механическим межосевым дифференциалом)</li>
-                        <li><strong>Коробка передач:</strong> 8-ступенчатая автоматическая Tiptronic</li>
-                        <li><strong>Год выпуска:</strong> 2023</li>
-                        <li><strong>Пробег:</strong> 0 км (новый)</li>
-                        <li><strong>Количество мест:</strong> 7</li>
-                        <li><strong>Объем багажника:</strong> 865-2050 литров</li>
-                        <li><strong>Габариты (Д×Ш×В):</strong> 5063×1970×1741 мм</li>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="equipment-item border-2" style="border-color: #005b9e;">
+                        <span class="position-absolute top-0 start-50 translate-middle badge px-4 py-2" style="background: linear-gradient(135deg, #005b9e, #003f6b);">
+                            Рекомендуем
+                        </span>
+                        <div class="equipment-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">S line</h3>
+                        <div class="car-price h4 mb-3" style="color: #005b9e;">5 980 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>HD Matrix LED</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Кожа Valcona</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Четырехзонный климат</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Адаптивная пневмоподвеска</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="equipment-item">
+                        <div class="equipment-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h3 class="h5 fw-bold">Vorsprung</h3>
+                        <div class="car-price h4 mb-3" style="color: #005b9e;">6 450 000 ₽</div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Bang & Olufsen звук</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Массаж передних сидений</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Лазерные фары</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ночное видение</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Отзывы владельцев</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="review-card bg-white p-4 rounded-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3 text-white" style="width: 60px; height: 60px; background: linear-gradient(135deg, #005b9e, #003f6b);">
+                                <span class="fw-bold fs-5">АН</span>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold mb-1">Алексей Николаев</h4>
+                                <small class="text-muted">Владелец 1 год</small>
+                            </div>
+                        </div>
+                        <div class="rating-stars mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="mb-2">Отличный семейный автомобиль! Третий ряд реально удобный, не как в некоторых конкурентах. Двигатель мощный, расход приемлемый. quattro - это легенда, зимой вообще проблем нет. Доволен как слон!</p>
+                        <small class="text-muted">5 дней назад</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="review-card bg-white p-4 rounded-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3 text-white" style="width: 60px; height: 60px; background: linear-gradient(135deg, #005b9e, #003f6b);">
+                                <span class="fw-bold fs-5">ЕП</span>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold mb-1">Елена Петрова</h4>
+                                <small class="text-muted">Владелец 8 месяцев</small>
+                            </div>
+                        </div>
+                        <div class="rating-stars mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="mb-2">Возим троих детей и бабушку с дедушкой - всем хватает места. Багажник огромный, коляска помещается без проблем. Пневмоподвеска - сказка, не чувствуешь ям. В салоне очень тихо на скорости.</p>
+                        <small class="text-muted">2 недели назад</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Похожие автомобили -->
+    <section id="similar" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Похожие автомобили</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-right">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" class="card-img-top" alt="BMW X5">
+                        <div class="card-body">
+                            <h3 class="card-title h5">BMW X5 xDrive40i</h3>
+                            <p class="card-text text-muted">5 890 000 ₽</p>
+                            <a href="autotor.html" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" class="card-img-top" alt="Mercedes-Benz GLE">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Mercedes-Benz GLE 350</h3>
+                            <p class="card-text text-muted">6 150 000 ₽</p>
+                            <a href="autotor1.html" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-left">
+                    <div class="car-card card h-100 border-0 shadow-sm">
+                        <img src="https://avatars.mds.yandex.net/i?id=10b417aaad62557aa8d55e800849dc0a5426ef65-10700817-images-thumbs&n=13" class="card-img-top" alt="Volvo XC90">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Volvo XC90 Recharge</h3>
+                            <p class="card-text text-muted">6 450 000 ₽</p>
+                            <a href="#" class="btn btn-outline-primary w-100 rounded-pill">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128961.jpg" alt="АвтоТор" class="rounded-circle me-2" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="fw-bold mb-0 gradient-text">АвтоТор</h5>
+                            <span class="text-white-50">автосалон в Калининграде</span>
+                        </div>
+                    </div>
+                    <p class="text-white-50 mb-4">Официальный дилер Audi в Калининграде. Продажа, сервис, кредитование, trade-in.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none hover-white">Главная</a></li>
+                        <li class="mb-2"><a href="catalog.html" class="text-white-50 text-decoration-none hover-white">Каталог</a></li>
+                        <li class="mb-2"><a href="contacts.html" class="text-white-50 text-decoration-none hover-white">Контакты</a></li>
                     </ul>
                 </div>
-                
-                <h2>Подробное описание товара</h2>
-                <div class="full-description">
-                    <p>Audi Q7 55 TFSI представляет собой идеальное сочетание роскоши, комфорта и функциональности для всей семьи. В салоне вас встречает простор и технологичность — кожаная отделка Valcona, четырехзонный климат-контроль и современная виртуальная панель приборов Audi virtual cockpit с дисплеем 12.3".</p>
-                    <p>Автомобиль оснащен пневматической подвеской с регулировкой дорожного просвета, которая автоматически подстраивается под дорожные условия и скорость движения, обеспечивая непревзойденный комфорт и устойчивость.</p>
-                    <p>Система помощи водителю включает адаптивный круиз-контроль Audi adaptive cruise control, ассистент движения по полосе, автоматическое экстренное торможение Pre sense front, систему распознавания дорожных знаков и круговой обзор с камерами 360°.</p>
-                    <p>Багажное отделение объемом 865 литров легко трансформируется благодаря складывающимся задним сиденьям с электроприводом. Для удобства погрузки имеется электрическая дверь багажника с функцией бесконтактного открывания smart open.</p>
-                </div>
-                
-                <h2>Внешний вид и особенности</h2>
-                <div class="full-description">
-                    <p>Внешность Audi Q7 отличается строгим и элегантным дизайном, характерным для моделей Audi. Большая однорамная решетка радиатора Singleframe, матричные светодиодные фары HD Matrix LED и выразительные линии кузова создают впечатляющий образ премиум-внедорожника.</p>
-                    
-                    <div>
-                        <div>
-                            <div>Цвет кузова</div>
-                            <div>Манхэттен Грей металлик</div>
-                        </div>
-                        <div>
-                            <div>Цвет салона</div>
-                            <div>Кожа Valcona черная с контрастной строчкой</div>
-                        </div>
-                        <div>
-                            <div>Диски</div>
-                            <div>Легкосплавные, 21 дюйм, стиль 5-спицевые V-образные</div>
-                        </div>
-                        <div>
-                            <div>Фары</div>
-                            <div>Матричные светодиодные HD Matrix LED с динамическими поворотниками</div>
-                        </div>
-                        <div>
-                            <div>Доп. оборудование</div>
-                            <div>Панорамная стеклянная крыша, спортивный пакет S line</div>
-                        </div>
-                        <div>
-                            <div>Система мультимедиа</div>
-                            <div>MMI navigation plus с двумя сенсорными экранами (10.1" + 8.6")</div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Контакты</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>г. Калининград, ул. Автомобильная, д. 15</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i>+7 (4012) 123-45-67</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div>
-            <h2>Другие автомобили в нашем салоне</h2>
-            <div class="product-grid">
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/get-entity_search/5504037/1228435937/S600xU_2x" alt="BMW X5">
-                    <div class="short-description">
-                        <h3>BMW X5 xDrive40i</h3>
-                        <p>Роскошный кроссовер с мощным двигателем</p>
-                        <div>5 890 000 ₽</div>
-                    </div>
-                </div>
-                
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/get-autoru-vos/2165425/51aeb04658c96386b7d5b9fc7131a6f7/1200x900" alt="Mercedes-Benz GLE">
-                    <div class="short-description">
-                        <h3>Mercedes-Benz GLE 350</h3>
-                        <p>Роскошный кроссовер с гибридной установкой</p>
-                        <div>6 150 000 ₽</div>
-                    </div>
-                </div>
-                
-                <div class="product-card short-description">
-                    <img class="product-image" src="https://avatars.mds.yandex.net/i?id=10b417aaad62557aa8d55e800849dc0a5426ef65-10700817-images-thumbs&n=13" alt="Volvo XC90">
-                    <div class="short-description">
-                        <h3>Volvo XC90 Recharge</h3>
-                        <p>Гибридный SUV премиум-класса</p>
-                        <div>6 450 000 ₽</div>
-                    </div>
-                </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50">
+                <p class="mb-0">© 2023 АвтоТор. Все права защищены.</p>
             </div>
         </div>
-        
-        <hr>
+    </footer>
 
-        <footer class="footer">
-            <p class="footer-rights">© 2023 Автосборочное предприятие Калининграда "АвтоТор". Все права защищены.</p>
-            <p>Официальный дилер Audi, BMW, Mercedes-Benz, Volvo в Калининградской области</p>
-            <p>Телефон: +7 (4012) 123-45-67 | Email: info@avtotor-kld.ru</p>
-        </footer>
+    <!-- Модальное окно тест-драйва -->
+    <div class="modal fade" id="testDriveModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Запись на тест-драйв</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">Audi Q7 55 TFSI quattro</p>
+                    <form id="testDriveForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Телефон" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" class="form-control" min="2024-01-01" required>
+                        </div>
+                        <button type="submit" class="btn w-100 rounded-pill py-3 text-white" style="background: linear-gradient(135deg, #005b9e, #003f6b); border: none;">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </body>
 </html>
